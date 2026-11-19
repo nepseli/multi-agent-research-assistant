@@ -25,13 +25,13 @@ The agents run in the order listed in `crews/crew.py`. Each agent gets its model
 ├── src/mult_agent_research_assistant/
 │   └── __init__.py             # Packaging scaffold; not used by main.py
 ├── main.py                     # Loads .env and starts the research crew
-├── app.py                      # Reserved for a future Streamlit interface
+├── app.py                      # Streamlit interface for the research crew
 ├── .env.example                # Safe template for required settings
 ├── pyproject.toml              # Project metadata and dependencies
 └── uv.lock                     # Locked dependency versions
 ```
 
-`main.py` currently starts a run for the hard-coded topic `"AI Agents"`. Edit that value near the bottom of the file to research a different topic. The report files are generated in the project root and are ignored by Git.
+`main.py` currently starts a run for the hard-coded topic `"AI Agents"`. Edit that value near the bottom of the file to research a different topic. The Streamlit interface in `app.py` accepts a topic in the browser and runs the same CrewAI workflow. The report files are generated in the project root and are ignored by Git.
 
 ## Requirements
 
@@ -63,7 +63,13 @@ The agents run in the order listed in `crews/crew.py`. Each agent gets its model
 
    Open `.env` and replace the placeholder values for `OPENROUTER_API_KEY` and `SERPER_API_KEY`. Keep `.env` private; it is excluded from Git.
 
-4. Run the workflow from the project folder:
+4. Start the Streamlit interface from the project folder:
+
+   ```powershell
+   uv run streamlit run app.py
+   ```
+
+   To run the command-line workflow instead:
 
    ```powershell
    uv run python main.py
@@ -83,7 +89,7 @@ uv run python main.py
 - **CrewAI Tools** provides `SerperDevTool`, `FileReadTool`, and `FileWriterTool`.
 - **LiteLLM**, enabled through the `crewai[litellm]` extra, connects CrewAI to OpenRouter.
 - **python-dotenv** loads local settings from `.env`.
-- **Streamlit** is listed as a dependency for a future UI; `app.py` does not currently implement one.
+- **Streamlit** provides the browser interface in `app.py`.
 
 ## Configuration
 
