@@ -45,7 +45,7 @@ The agents run in the order listed in `crews/crew.py`. Each agent gets its model
 1. Clone the repository and enter its folder:
 
    ```powershell
-   git clone https://github.com/<your-github-username>/multi-agent-research-assistant.git
+   git clone https://github.com/nepseli/multi-agent-research-assistant.git
    cd multi-agent-research-assistant
    ```
 
